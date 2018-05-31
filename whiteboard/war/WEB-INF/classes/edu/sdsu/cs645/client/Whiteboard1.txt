@@ -1,0 +1,118 @@
+package edu.sdsu.cs645.client;
+
+import edu.sdsu.cs645.shared.FieldVerifier;
+import com.google.gwt.core.client.*;
+import com.google.gwt.event.dom.client.*;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.*;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class Whiteboard implements EntryPoint {
+    /**
+    * The message displayed to the user when the server cannot be reached or
+    * returns an error.
+    */
+    private static final String SERVER_ERROR = "An error occurred while "
+        + "attempting to contact the server. Please check your network "
+        + "connection and try again.";
+
+    /**
+    * Create a remote service proxy to talk to the server-side Whiteboard service.
+    */
+    private final WhiteboardServiceAsync whiteboardingService = GWT.create(WhiteboardService.class);
+    private HTML status;
+    private RichTextArea board;
+    
+    public void onModuleLoad() {
+        status = new HTML();
+        buildLogin();
+    }
+
+    private void buildLogin(){
+        FlowPanel loginPanel = new FlowPanel();
+        // loginPanel.getElement().setId("log_panel"); class
+        loginPanel.getElement().setId("log_panel"); // css -id
+        final TextBox user = new TextBox();
+        final PasswordTextBox password = new PasswordTextBox();
+        loginPanel.add(new HTML("<h1>Please enter your password </h1>"));
+        loginPanel.add(new Label("Username"));
+        loginPanel.add(user);
+        loginPanel.add(new Label("Password"));
+        loginPanel.add(password);
+        FlowPanel buttonPanel = new FlowPanel();
+        buttonPanel.setStyleName("btn-login-panel");
+        Button loginButton = new Button("Login");
+        Button clearButton = new Button("Clear");
+        loginButton.setStyleName("log-btn");
+        clearButton.setStyleName("clr-btn");
+        
+        clearButton.addClickHandler(new ClickHandler(){
+            public void onClick(ClickEvent e){
+                status.setText("");
+                password.setText("");
+                password.setFocus(true);
+            }
+        });
+
+        loginButton.addClickHandler(new ClickHandler(){
+            public void onClick(ClickEvent e){
+                validateLogin(password.getText());
+                password.setFocus(true);
+            }
+        });
+
+        buttonPanel.add(clearButton);
+        buttonPanel.add(loginButton);
+        buttonPanel.add(new HTML("<br/>Code by Sanchit Arora , SP 2018. jadrn057"));
+        loginPanel.add(buttonPanel);
+        loginPanel.add(status);
+        RootPanel.get().add(loginPanel);
+    }
+    
+}
+
+
+
+
+/*
+  private void buildLogin(){
+    FlowPanel loginPanel = new FlowPanel();
+    //attaching css handles
+    // loginPanel.setStyleName("log_panel");
+    loginPanel.getElement().setId("log_panel");
+    final PasswordTextBox password = new PasswordTextBox();
+    loginPanel.add(new HTML("<h1>Please enter your password </h1>"));
+    loginPanel.add(new Label("Password"));
+    loginPanel.add(password);
+    FlowPanel bPanel = new FlowPanel();
+    bPanel.setStyleName("blog_panel");
+    Button loginButton = new Button("Login");
+    Button clearButton = new Button("Clear");
+    loginButton.setStyleName("log_button");
+    clearButton.setStyleName("log_button");
+    clearButton.addClickHandler(new ClickHandler(){
+      public void onClick(ClickEvent e){
+        status.setText("");
+        password.setText("");
+        password.setFocus(true);
+      }
+    });
+
+    loginButton.addClickHandler(new ClickHandler(){
+      public void onClick(ClickEvent e){
+        validateLogin(password.getText());
+        password.setFocus(true);
+      }
+    });
+    bPanel.add(clearButton);
+    bPanel.add(loginButton);
+    bPanel.add(new HTML("<br/>Code by Dhiraj Patil , SP 2018. jadrn028"));
+    loginPanel.add(bPanel);
+    loginPanel.add(status);
+
+    RootPanel.get().add(loginPanel);
+    password.setFocus(true);
+  }
+*/

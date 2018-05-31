@@ -1,0 +1,127 @@
+/** Add css rules here for your application. */
+
+
+/** Example rules used by the template application (remove for your app) */
+body{
+  background:#ddd !important;
+}
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #777777;
+  margin: 40px 0px 70px;
+  text-align: center;
+}
+h3{
+  font-weight: bold;
+  color: #777777;
+  margin: 40px 0px 70px;
+  text-align: center;
+}
+.gwt-Label{
+  margin: 25px;
+  display: inline-block;
+  font-size: 120%
+}
+
+#log_panel{
+  display: block;
+  margin: 0 auto 0 auto;
+  width: 700px;
+  height: auto;
+  border: 2px solid #AAA !important;
+  text-align: center;
+  background: white;
+}
+#white_panel{
+  display: block;
+  margin: 0 auto 0 auto;
+  width: 1000px;
+  height: auto;
+  border: 2px solid #AAA !important;
+  text-align: center;
+  background: white;
+}
+
+
+.btn-login-panel{
+  text-align: center;
+  width: 700px;
+  display: block;
+  margin: 0 auto 0 auto;
+}
+.log-btn{
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 13px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 120%;
+  margin: 5px;
+  font-family: sans-serif;
+  border-radius: 10px;
+
+  }
+.clr-btn{
+  background-color: yellow;
+  border: none;
+  padding: 13px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 120%;
+  margin: 5px;
+  font-family: sans-serif;
+  border-radius: 10px;
+  
+}
+#status_msg {
+  text-align: center;
+  font-size:150%;
+  font-style: italic;
+}
+.error{
+  color : #D8000C;
+  background-color: #FFBABA;
+}
+.success {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+  }
+.gwt-RichTextArea {
+  display: block;
+  margin:5px auto;
+  padding: 10px;
+  width:680px;
+  height: auto;
+  scroll-behavior: auto;
+  border: 2px solid #AAA !important;
+  border-radius: 10px;
+}
+.clr{
+  background-color: yellow;
+}
+.save{
+  background-color: #008CBA;
+  color: white;
+}
+.load {
+  background-color: #4CAF50;
+  color: white;
+}
+.btn{
+  padding: 8px 16px;
+  text-align: left;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  border: 2px solid #eee;
+}
+#hist{
+  background: #eee;
+}
